@@ -1,35 +1,22 @@
-interface CoursePartBase {
-  name: string;
-  exerciseCount: number;
+export enum Weather {
+  Sunny = "sunny",
+  Rainy = "rainy",
+  Cloudy = "cloudy",
+  Stormy = "stormy",
+  Windy = "windy",
 }
 
-interface CoursePartBasic extends CourseDes {
-  //   description: string;
-  kind: "basic";
+export enum Visibility {
+  Great = "great",
+  Good = "good",
+  Ok = "ok",
+  Poor = "poor",
 }
 
-interface CoursePartGroup extends CoursePartBase {
-  groupProjectCount: number;
-  kind: "group";
+export interface DiaryEntry {
+  id: number;
+  date: string;
+  weather: Weather;
+  visibility: Visibility;
+  comment: string;
 }
-
-interface CoursePartBackground extends CourseDes {
-  //   description: string;
-  backgroundMaterial: string;
-  kind: "background";
-}
-
-interface CourseDes extends CoursePartBase {
-  description: string;
-}
-
-interface CoursePartExtra extends CourseDes {
-  requirements: ["nodejs", "jest"];
-  kind: "special";
-}
-
-export type CoursePart =
-  | CoursePartBasic
-  | CoursePartGroup
-  | CoursePartBackground
-  | CoursePartExtra;
