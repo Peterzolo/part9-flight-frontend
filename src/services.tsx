@@ -2,12 +2,14 @@ import axios from "axios";
 import { apiBaseUrl } from "./constant";
 import { DiaryEntry } from "./interface/interface";
 
-export const getAllPatients = async () => {
-  const { data } = await axios.get<DiaryEntry[]>(`${apiBaseUrl}/diaries`);
-  console.log("DIARIES", data);
-  return data;
+export const getAllDiaries = async () => {
+  try {
+    const response = await axios.get(`${apiBaseUrl}`);
+    return response.data;
+  } catch (error: any) {
+    throw new Error("Error fetching diaries: " + error.message);
+  }
 };
-
 // export const createPatient = async (
 //   object: PatientFormValues
 // ): Promise<Patient> => {

@@ -1,9 +1,12 @@
 import React from "react";
+import Diaries from "./components/Diaries";
 
 const App: React.FC = () => {
   return (
     <>
-      <div>App</div>
+      <div>
+        <Diaries />
+      </div>
     </>
   );
 };

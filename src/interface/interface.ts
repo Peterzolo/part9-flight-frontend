@@ -1,12 +1,11 @@
-export enum Weather {
+enum Weather {
   Sunny = "sunny",
   Rainy = "rainy",
   Cloudy = "cloudy",
   Stormy = "stormy",
   Windy = "windy",
 }
-
-export enum Visibility {
+enum Visibility {
   Great = "great",
   Good = "good",
   Ok = "ok",
