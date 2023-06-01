@@ -13,11 +13,9 @@ export const getAllDiaries = async () => {
 export const createDiary = async (
   object: ICreateDiary
 ): Promise<DiaryEntry> => {
+  console.log("GOT HERE");
   try {
-    const { data } = await axios.post<DiaryEntry>(
-      `${apiBaseUrl}/diaries`,
-      object
-    );
+    const { data } = await axios.post<DiaryEntry>(`${apiBaseUrl}`, object);
     console.log("DATA", data);
     return data;
   } catch (error: any) {
