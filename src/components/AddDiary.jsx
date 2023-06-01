@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { createDiary } from "../services";
 
+import "../styles/Styles.css";
+
 const AddDiary = () => {
   const [date, setDate] = useState("");
   const [weather, setWeather] = useState("");
@@ -35,10 +37,10 @@ const AddDiary = () => {
   };
 
   return (
-    <div>
+    <div className="wrapper">
       <h1>Add Diary</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="form-wrapper">
+        <div className="input-wrap">
           <label htmlFor="date">Date:</label>
           <input
             type="date"
@@ -48,72 +50,10 @@ const AddDiary = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="weather">Weather:</label>
-          <div>
-            <input
-              type="radio"
-              id="sunny"
-              name="weather"
-              value="sunny"
-              checked={weather === "sunny"}
-              onChange={() => setWeather("sunny")}
-              required
-            />
-            <label htmlFor="sunny">Sunny</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="rainy"
-              name="weather"
-              value="rainy"
-              checked={weather === "rainy"}
-              onChange={() => setWeather("rainy")}
-              required
-            />
-            <label htmlFor="rainy">Rainy</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="cloudy"
-              name="weather"
-              value="cloudy"
-              checked={weather === "cloudy"}
-              onChange={() => setWeather("cloudy")}
-              required
-            />
-            <label htmlFor="cloudy">Cloudy</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="stormy"
-              name="weather"
-              value="stormy"
-              checked={weather === "stormy"}
-              onChange={() => setWeather("stormy")}
-              required
-            />
-            <label htmlFor="stormy">Stormy</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="windy"
-              name="weather"
-              value="windy"
-              checked={weather === "windy"}
-              onChange={() => setWeather("windy")}
-              required
-            />
-            <label htmlFor="windy">Windy</label>
-          </div>
-        </div>
+
         <div>
           <label htmlFor="visibility">Visibility:</label>
-          <div>
+          <div className="input-wrap">
             <input
               type="radio"
               id="great"
@@ -125,7 +65,7 @@ const AddDiary = () => {
             />
             <label htmlFor="great">Great</label>
           </div>
-          <div>
+          <div className="input-wrap">
             <input
               type="radio"
               id="good"
@@ -137,7 +77,7 @@ const AddDiary = () => {
             />
             <label htmlFor="good">Good</label>
           </div>
-          <div>
+          <div className="input-wrap">
             <input
               type="radio"
               id="ok"
@@ -149,7 +89,7 @@ const AddDiary = () => {
             />
             <label htmlFor="ok">OK</label>
           </div>
-          <div>
+          <div className="input-wrap">
             <input
               type="radio"
               id="poor"
@@ -163,6 +103,70 @@ const AddDiary = () => {
           </div>
         </div>
         <div>
+          <label htmlFor="weather">Weather:</label>
+          <div className="input-wrap">
+            <input
+              type="radio"
+              id="sunny"
+              name="weather"
+              value="sunny"
+              checked={weather === "sunny"}
+              onChange={() => setWeather("sunny")}
+              required
+            />
+            <label htmlFor="sunny">Sunny</label>
+          </div>
+          <div className="input-wrap">
+            <input
+              type="radio"
+              id="rainy"
+              name="weather"
+              value="rainy"
+              checked={weather === "rainy"}
+              onChange={() => setWeather("rainy")}
+              required
+            />
+            <label htmlFor="rainy">Rainy</label>
+          </div>
+          <div className="input-wrap">
+            <input
+              type="radio"
+              id="cloudy"
+              name="weather"
+              value="cloudy"
+              checked={weather === "cloudy"}
+              onChange={() => setWeather("cloudy")}
+              required
+            />
+            <label htmlFor="cloudy">Cloudy</label>
+          </div>
+          <div className="input-wrap">
+            <input
+              type="radio"
+              id="stormy"
+              name="weather"
+              value="stormy"
+              checked={weather === "stormy"}
+              onChange={() => setWeather("stormy")}
+              required
+            />
+            <label htmlFor="stormy">Stormy</label>
+          </div>
+          <div className="input-wrap">
+            <input
+              type="radio"
+              id="windy"
+              name="weather"
+              value="windy"
+              checked={weather === "windy"}
+              onChange={() => setWeather("windy")}
+              required
+            />
+            <label htmlFor="windy">Windy</label>
+          </div>
+        </div>
+
+        <div className="input-wrap">
           <label htmlFor="comment">Comment:</label>
           <textarea
             id="comment"
@@ -171,7 +175,9 @@ const AddDiary = () => {
             required
           ></textarea>
         </div>
-        <button type="submit">Add Diary Entry</button>
+        <button type="submit" className="add-btn">
+          Add Diary Entry
+        </button>
       </form>
     </div>
   );
