@@ -10,7 +10,7 @@ export const getAllDiaries = async () => {
     throw new Error("Error fetching diaries: " + error.message);
   }
 };
-export const createPatient = async (
+export const createDiary = async (
   object: ICreateDiary
 ): Promise<DiaryEntry> => {
   try {

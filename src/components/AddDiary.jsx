@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createDiary } from "./api"; // Assuming you have an API module for making HTTP requests
+import { createDiary } from "../services";
 
 const AddDiary = () => {
   const [date, setDate] = useState("");
@@ -18,7 +18,6 @@ const AddDiary = () => {
         comment,
       };
 
-      // Call the API function to create a diary entry
       const createdEntry = await createDiary(newDiaryEntry);
 
       // Do something with the created diary entry, e.g., show a success message
