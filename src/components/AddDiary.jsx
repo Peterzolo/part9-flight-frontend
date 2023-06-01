@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createDiary } from "../services";
+import { v4 as uuidv4 } from "uuid";
 
 import "../styles/Styles.css";
 
@@ -8,37 +9,41 @@ const AddDiary = () => {
   const [weather, setWeather] = useState("");
   const [visibility, setVisibility] = useState("");
   const [comment, setComment] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const newDiaryEntry = {
+        id: uuidv4(),
         date,
         weather,
         visibility,
         comment,
       };
 
-      const createdEntry = await createDiary(newDiaryEntry);
+      await createDiary(newDiaryEntry);
 
-      // Do something with the created diary entry, e.g., show a success message
-      console.log("Created Diary Entry:", createdEntry);
+      setSuccessMessage("Diary entry created successfully!");
 
-      // Reset the form fields
       setDate("");
       setWeather("");
       setVisibility("");
       setComment("");
     } catch (error) {
-      // Handle error
-      console.log("Error:", error);
+      setErrorMessage("Error: " + error.message);
     }
   };
 
   return (
     <div className="wrapper">
       <h1>Add Diary</h1>
+      {successMessage && (
+        <div className="success-message">{successMessage}</div>
+      )}
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form onSubmit={handleSubmit} className="form-wrapper">
         <div className="input-wrap">
           <label htmlFor="date">Date:</label>
