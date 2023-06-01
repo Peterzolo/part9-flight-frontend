@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiBaseUrl } from "./constant";
-import { DiaryEntry } from "./interface/interface";
+import { DiaryEntry, ICreateDiary } from "./interface/interface";
 
 export const getAllDiaries = async () => {
   try {
@@ -10,18 +10,18 @@ export const getAllDiaries = async () => {
     throw new Error("Error fetching diaries: " + error.message);
   }
 };
-// export const createPatient = async (
-//   object: PatientFormValues
-// ): Promise<Patient> => {
-//   try {
-//     const { data } = await axios.post<Patient>(
-//       `${apiBaseUrl}/patients/add`,
-//       object
-//     );
-//     console.log("DATA", data);
-//     return data;
-//   } catch (error: any) {
-//     console.log(error);
-//     return error;
-//   }
-// };
+export const createPatient = async (
+  object: ICreateDiary
+): Promise<DiaryEntry> => {
+  try {
+    const { data } = await axios.post<DiaryEntry>(
+      `${apiBaseUrl}/diaries`,
+      object
+    );
+    console.log("DATA", data);
+    return data;
+  } catch (error: any) {
+    console.log(error);
+    return error;
+  }
+};

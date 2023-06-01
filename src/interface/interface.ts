@@ -19,3 +19,10 @@ export interface DiaryEntry {
   visibility: Visibility;
   comment: string;
 }
+
+export interface ICreateDiary {
+  date: string;
+  visibility: string;
+  weather: string;
+  comment: string;
+}
